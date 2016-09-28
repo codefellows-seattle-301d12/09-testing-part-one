@@ -28,11 +28,10 @@ function assert(expression, successMessage, failureMessage) {
 //  Below, we will write an example of our test in action:
 
 var ricksFaveAnimal;
+var ricksFaveAnimal = 'laksjdflajsdf';
 
 exampleTest = function() {
-  assert(
-
-  );
+  assert(typeof ricksFaveAnimal==='string', 'is string', 'is not string');
 };
 
 
@@ -47,7 +46,7 @@ var favoriteAnimals = ['elephants', 'penguins', 'eagles', 'camels'];
 var nextAnimal;
 
 
-/* TODO:
+/* DONE:
 Write a test FIRST! Use the `assert()` function below to ensure
 that an element in the favoriteAnimals array was assigned to nextAnimal.
 
@@ -57,12 +56,19 @@ Remember to: pass in your expression, and write a success and a failure
 message. */
 
 faveAnimalTest = function() {
-  assert(
-
-  );
+  assert(favoriteAnimals.includes(nextAnimal),nextAnimal+' is one of favorite animals',nextAnimal+' is not one of favorite animals');
 };
 
-/* TODO:
+/* DONE:
 Now assign one of your favorite animals dynamically, by chance, to the
 nextAnimal variable ... then invoke your test!   :-)
 Your code begins on the next line: */
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+nextAnimal = favoriteAnimals[getRandomInt(0,(favoriteAnimals.length))];
+
+faveAnimalTest();
